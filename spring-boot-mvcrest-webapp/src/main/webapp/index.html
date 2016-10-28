@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Arithmetic Application</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">	
+</head>
+<body>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">Kid - Mathematician</a>
+	    </div>
+	
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li class="active"><a href="#">Home </a></li>
+	        <li><a href="#">About</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	<div class="container">
+		<form>
+		  <div class="form-group">
+		    <label>Operand1</label>
+		    <input type="text" class="form-control" name="operand1" placeholder="Operand1">
+		  </div>
+		  <div class="form-group">
+		    <label>Operand2</label>
+		    <input type="text" class="form-control" name="operand2" placeholder="Operand2">
+		  </div>
+		  <div class="form-group">
+		    <label>Operation</label>
+			<select name="operation" class="form-control">
+					  <option value="add">+</option>
+					  <option value="sub">-</option>
+					  <option value="multi">*</option>
+					  <option value="div">/</option>
+			</select>
+		  </div>  
+		  <div class="form-group">
+		    <label>Baby answer</label>
+		    <input type="text" class="form-control" name="babyAnswer" placeholder="Baby Answer">
+		  </div>		  
+		  <button type="button" class="btn btn-primary" onclick="onClickSubmit()">Submit</button>
+		  <button type="button" class="btn btn-danger" onclick="onClickStopSong()">Stop Song</button>
+		</form>	
+		<h3>Result is :<span id="result"></span></h3>
+		<audio controls id="godSong" style="display:none">
+		  <source src="assets/god.mp3" type="audio/mpeg">
+		  Your browser does not support the audio element.
+		</audio>
+		<audio controls id="ghostSong" style="display:none">
+		  <source src="assets/ghost.mp3" type="audio/mpeg">
+		  Your browser does not support the audio element.
+		</audio>						
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>	
+	<script>
+		function onClickSubmit(){
+			var operand1    = $('input[name="operand1"]')[0].value,
+				operand2    = $('input[name="operand2"]')[0].value,
+				babyAnswer  = $('input[name="babyAnswer"]')[0].value,
+				operation   = $('[name="operation"] option:selected').val(),
+				result      = $('#result')[0];
+			
+	        $.ajax({
+	        	url         : "http://localhost:8080/arithmetic",
+	        	method      : 'POST',
+	        	contentType : "application/json; charset=utf-8",
+	        	dataType    : "json",
+	        	data        : JSON.stringify({
+       			  "operand1" : operand1,
+       			  "operand2" : operand2,
+       			  "operation": operation
+	        	}),
+	        	success : function(response){
+	        		result.innerHTML = response.result;
+	        		if(babyAnswer == response.result){
+	        			$('#ghostSong')[0].pause();
+	        			$('#godSong')[0].play();
+	        		}
+	        		else{
+	        			$('#godSong')[0].pause();
+	        			$('#ghostSong')[0].play();	
+	        		}
+	        	},
+	        	failure : function(response){
+	        		alert("Request failed!");
+	        	}
+	        });
+		}
+		
+		function onClickStopSong(){
+			$('#ghostSong')[0].pause();
+			$('#godSong')[0].pause();			
+		}
+	</script>
+</body>
+</html>
