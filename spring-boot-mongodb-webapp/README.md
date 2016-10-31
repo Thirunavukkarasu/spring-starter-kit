@@ -9,12 +9,12 @@ A Spring boot web project for dealing with mongodb collections
  ```
  > mongod --dbpath="C:/data"
  ```
-![alt tag](https://raw.githubusercontent.com/Thirunavukkarasu/spring-boot-mongodb-webapp/master/screenshots/mongod.png)
+![alt tag](https://raw.githubusercontent.com/Thirunavukkarasu/spring-development-series/master/spring-boot-mongodb-webapp/screenshots/mongod.png)
 
 
 ## Demo
 
-![alt tag](https://raw.githubusercontent.com/Thirunavukkarasu/spring-boot-mongodb-webapp/master/screenshots/spring-data-mongo-api.png)
+![alt tag](https://raw.githubusercontent.com/Thirunavukkarasu/spring-development-series/master/spring-boot-mongodb-webapp/screenshots/spring-data-mongo-api.png)
 
 
 ## Navigate by pageNumber
