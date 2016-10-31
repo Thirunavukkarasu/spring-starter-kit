@@ -4,11 +4,11 @@ A Spring boot web project for dealing with couchbase repositories
 
 ## Demo
 
-![alt tag](https://raw.githubusercontent.com/Thirunavukkarasu/spring-boot-couchbase-web/master/demo/pagniation-and-size.png)
+![alt tag](https://github.com/Thirunavukkarasu/spring-development-series/blob/master/spring-boot-couchbase-webapp/demo/couchbase-view.png)
 
-![alt tag](https://raw.githubusercontent.com/Thirunavukkarasu/spring-boot-couchbase-web/master/demo/couchbase-view.png)
+![alt tag](https://github.com/Thirunavukkarasu/spring-development-series/blob/master/spring-boot-couchbase-webapp/demo/couchbase-view.png)
 
-![alt tag](https://raw.githubusercontent.com/Thirunavukkarasu/spring-boot-couchbase-web/master/demo/view-code.png)
+![alt tag](https://github.com/Thirunavukkarasu/spring-development-series/blob/master/spring-boot-couchbase-webapp/demo/view-code.png)
 
 
 
