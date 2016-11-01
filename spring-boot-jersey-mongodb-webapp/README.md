@@ -1,3 +1,4 @@
+# spring-boot-jersey-mongodb-webapp
 
 A spring boot webapp built on top Jersey REST instead of MVC rest
 
@@ -13,12 +14,16 @@ A spring boot webapp built on top Jersey REST instead of MVC rest
 
 ## Demo
 
+### GET request
 ![alt tag](https://raw.githubusercontent.com/Thirunavukkarasu/spring-development-series/master/spring-boot-jersey-mongodb-webapp/screenshots/Get.png)
 
+### POST request
 ![alt tag](https://raw.githubusercontent.com/Thirunavukkarasu/spring-development-series/master/spring-boot-jersey-mongodb-webapp/screenshots/Post.png)
 
+### PUT request
 ![alt tag](https://raw.githubusercontent.com/Thirunavukkarasu/spring-development-series/master/spring-boot-jersey-mongodb-webapp/screenshots/Put.png)
 
+### DELETE request
 ![alt tag](https://raw.githubusercontent.com/Thirunavukkarasu/spring-development-series/master/spring-boot-jersey-mongodb-webapp/screenshots/Delete.png)
 
 ## MongoDB Commands
