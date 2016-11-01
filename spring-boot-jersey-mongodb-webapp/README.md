@@ -11,18 +11,11 @@ A spring boot webapp built on top Jersey REST instead of MVC rest
  ```
 ![alt tag](https://raw.githubusercontent.com/Thirunavukkarasu/spring-development-series/master/spring-boot-mongodb-webapp/screenshots/mongod.png)
 
+## Demo
 
-## REST controller
+### GET request
 
 ```
-@Component
-@Path("/runners")
-@Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
-public class RunnerController {
-	@Autowired
-	RunnerRepository runnerRepository;
-	
 	/***
 	 * Get all the MongoDB runner collection documents
 	 * @param runner
@@ -32,7 +25,12 @@ public class RunnerController {
 	public Page<Runner> getRunners(Pageable pageable){
 		return runnerRepository.findAll(pageable);
 	}
-	
+```
+![alt tag](https://raw.githubusercontent.com/Thirunavukkarasu/spring-development-series/master/spring-boot-jersey-mongodb-webapp/screenshots/Get.png)
+
+### POST request
+
+```
 	/***
 	 * Insert the MongoDB runner collection with the given runner details
 	 * @param runner
@@ -43,7 +41,12 @@ public class RunnerController {
 		runnerRepository.save(runner);
 		return runnerRepository.findAll();
 	}
-	
+```
+![alt tag](https://raw.githubusercontent.com/Thirunavukkarasu/spring-development-series/master/spring-boot-jersey-mongodb-webapp/screenshots/Post.png)
+
+### PUT request
+
+```
 	/***
 	 * Update the MongoDB runner collection for the given runnerId
 	 * @param runner
@@ -56,7 +59,12 @@ public class RunnerController {
 		runnerRepository.save(existingRunner);
 		return runnerRepository.findAll();
 	}
-	
+```
+![alt tag](https://raw.githubusercontent.com/Thirunavukkarasu/spring-development-series/master/spring-boot-jersey-mongodb-webapp/screenshots/Put.png)
+
+### DELETE request
+
+```
 	/***
 	 * Delete the MongoDB runner collection for the given runnerId
 	 * @param runner
@@ -67,21 +75,7 @@ public class RunnerController {
 		runnerRepository.deleteByRunnerId(runner.getRunnerId());
 		return runnerRepository.findAll();
 	}
-}
 ```
-
-## Demo
-
-### GET request
-![alt tag](https://raw.githubusercontent.com/Thirunavukkarasu/spring-development-series/master/spring-boot-jersey-mongodb-webapp/screenshots/Get.png)
-
-### POST request
-![alt tag](https://raw.githubusercontent.com/Thirunavukkarasu/spring-development-series/master/spring-boot-jersey-mongodb-webapp/screenshots/Post.png)
-
-### PUT request
-![alt tag](https://raw.githubusercontent.com/Thirunavukkarasu/spring-development-series/master/spring-boot-jersey-mongodb-webapp/screenshots/Put.png)
-
-### DELETE request
 ![alt tag](https://raw.githubusercontent.com/Thirunavukkarasu/spring-development-series/master/spring-boot-jersey-mongodb-webapp/screenshots/Delete.png)
 
 ## MongoDB Commands
