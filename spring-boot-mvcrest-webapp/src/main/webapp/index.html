@@ -2,11 +2,33 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Arithmetic Application</title>
+	<title>Kid - Mathematician</title>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">	
+	<style>
+		.imgElement{
+		    position: fixed;
+		    left: 50%;
+		    top: 50%;
+		    z-index: 100;
+		    height: 400px;
+		    margin-top: -200px;
+		    width: 600px;
+		    margin-left: -300px;
+		    display: none;	
+		}
+		.imgElement img{
+			display: none;	
+			width: 600px;
+		}
+		.imgElement .close-icon{
+			position: absolute;
+			top     : 10px;
+			right   : 10px;
+			color   : red;
+			font-size: 30px;
+		}
+	</style>	
 </head>
 <body>
 	<nav class="navbar navbar-default">
@@ -32,42 +54,56 @@
 	  </div><!-- /.container-fluid -->
 	</nav>
 	<div class="container">
-		<form>
-		  <div class="form-group">
-		    <label>Operand1</label>
-		    <input type="text" class="form-control" name="operand1" placeholder="Operand1">
-		  </div>
-		  <div class="form-group">
-		    <label>Operand2</label>
-		    <input type="text" class="form-control" name="operand2" placeholder="Operand2">
-		  </div>
-		  <div class="form-group">
-		    <label>Operation</label>
-			<select name="operation" class="form-control">
-					  <option value="add">+</option>
-					  <option value="sub">-</option>
-					  <option value="multi">*</option>
-					  <option value="div">/</option>
-			</select>
-		  </div>  
-		  <div class="form-group">
-		    <label>Baby answer</label>
-		    <input type="text" class="form-control" name="babyAnswer" placeholder="Baby Answer">
-		  </div>		  
-		  <button type="button" class="btn btn-primary" onclick="onClickSubmit()">Submit</button>
-		  <button type="button" class="btn btn-danger" onclick="onClickStopSong()">Stop Song</button>
-		</form>	
-		<h3>Result is :<span id="result"></span></h3>
-		<audio controls id="godSong" style="display:none">
-		  <source src="assets/god.mp3" type="audio/mpeg">
-		  Your browser does not support the audio element.
-		</audio>
-		<audio controls id="ghostSong" style="display:none">
-		  <source src="assets/ghost.mp3" type="audio/mpeg">
-		  Your browser does not support the audio element.
-		</audio>						
+		<div class="col-md-offset-3 col-md-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Arithmetic Game
+				</div>
+				<div class="panel-body">
+					<form>
+					  <div class="form-group">
+					    <label>Operand1</label>
+					    <input type="text" class="form-control" name="operand1" placeholder="Operand1">
+					  </div>
+					  <div class="form-group">
+					    <label>Operand2</label>
+					    <input type="text" class="form-control" name="operand2" placeholder="Operand2">
+					  </div>
+					  <div class="form-group">
+					    <label>Operation</label>
+						<select name="operation" class="form-control">
+							  <option value="add">+</option>
+							  <option value="sub">-</option>
+							  <option value="multi">*</option>
+							  <option value="div">/</option>
+						</select>
+					  </div>  
+					  <div class="form-group">
+					    <label>Baby answer</label>
+					    <input type="text" class="form-control" name="babyAnswer" placeholder="Baby Answer">
+					  </div>		  
+					  <button type="button" class="btn btn-primary" onclick="onClickSubmit()">Submit</button>
+					  <button type="button" class="btn btn-danger" onclick="onClickStopSong()">Stop Song</button>
+					</form>	
+					<h3>Result is :<span id="result"></span></h3>
+					<audio controls id="godSong" style="display:none">
+					  <source src="assets/music/god.mp3" type="audio/mpeg">
+					  Your browser does not support the audio element.
+					</audio>
+					<audio controls id="ghostSong" style="display:none">
+					  <source src="assets/music/ghost.mp3" type="audio/mpeg">
+					  Your browser does not support the audio element.
+					</audio>				
+				</div>
+			</div>		
+		</div>		
+		<div class="imgElement">
+			<span class="close-icon" onclick="onClickImageClose()">X</span>
+			<img src="assets/images/god.jpg" id="godImg"/>
+			<img src="assets/images/ghost.jpg" id="ghostImg"/>
+		</div>				
 	</div>
-	<script src="js/jquery.min.js"></script>
+	<script src="assets/js/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>	
 	<script>
 		function onClickSubmit(){
@@ -92,13 +128,20 @@
 	        		if(babyAnswer == response.result){
 	        			$('#ghostSong')[0].pause();
 	        			$('#godSong')[0].play();
+	        			$('#ghostImg').hide(1000);
+	        			$('.imgElement').show(1000);
+	        			$('#godImg').show(1000);
 	        		}
 	        		else{
 	        			$('#godSong')[0].pause();
-	        			$('#ghostSong')[0].play();	
+	        			$('#ghostSong')[0].play();
+	        			$('#ghostImg').show(1000);
+	        			$('.imgElement').show(1000);
+	        			$('#godImg').hide(1000);
 	        		}
 	        	},
 	        	failure : function(response){
+	        		$('.imgElement').hide();
 	        		alert("Request failed!");
 	        	}
 	        });
@@ -107,6 +150,10 @@
 		function onClickStopSong(){
 			$('#ghostSong')[0].pause();
 			$('#godSong')[0].pause();			
+		}
+		
+		function onClickImageClose(){
+			$('.imgElement').hide(1000);
 		}
 	</script>
 </body>
