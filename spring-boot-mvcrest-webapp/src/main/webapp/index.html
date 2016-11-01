@@ -16,6 +16,7 @@
 		    width: 600px;
 		    margin-left: -300px;
 		    display: none;	
+		    -webkit-user-drag: element;
 		}
 		.imgElement img{
 			display: none;	
@@ -97,13 +98,14 @@
 				</div>
 			</div>		
 		</div>		
-		<div class="imgElement">
+		<div class="imgElement" draggable="true">
 			<span class="close-icon" onclick="onClickImageClose()">X</span>
 			<img src="assets/images/god.jpg" id="godImg"/>
 			<img src="assets/images/ghost.jpg" id="ghostImg"/>
 		</div>				
 	</div>
 	<script src="assets/js/jquery.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>	
 	<script>
 		function onClickSubmit(){
@@ -113,6 +115,7 @@
 				operation   = $('[name="operation"] option:selected').val(),
 				result      = $('#result')[0];
 			
+			$('.imgElement').draggable();
 	        $.ajax({
 	        	url         : "http://localhost:8080/arithmetic",
 	        	method      : 'POST',
