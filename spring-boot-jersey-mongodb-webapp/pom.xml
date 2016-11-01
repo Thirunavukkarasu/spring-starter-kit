@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.offloadmemory</groupId>
-	<artifactId>ArithmeticApp</artifactId>
+	<artifactId>mongo-webapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>spring-boot-mongodb</name>
-	<description>An awesome project for performing arithmetic operations</description>
+	<name>MongoApp</name>
+	<description>An awesome project for performing mongodb operations</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -25,24 +25,24 @@
 	</properties>
 
 	<dependencies>
-	    <dependency>
-	        <groupId>org.webjars</groupId>
-	        <artifactId>bootstrap</artifactId>
-	        <version>3.1.0</version>
-	    </dependency>	
+		<!-- https://mvnrepository.com/artifact/org.webjars/bootstrap -->
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>3.3.5</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-boot-starter-jersey</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
