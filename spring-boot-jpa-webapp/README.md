@@ -4,11 +4,11 @@
 This application is built using Spring Boot, Spring Data JPA, Spring MVC REST and Hibernate ORM  framework we use for communicating to Microsoft SQL Server.
 
 # Creating Table
-
+![Creating table](https://raw.githubusercontent.com/Thirunavukkarasu/spring-development-series/master/spring-boot-jpa-webapp/screenshots/1_Create_Table.PNG)
 # Selecting Records
-
-# Showing Records through API with pagination  
-
+![Selecting records](https://raw.githubusercontent.com/Thirunavukkarasu/spring-development-series/master/spring-boot-jpa-webapp/screenshots/2_Select_Records.PNG)
+# Showing Records through API with paginations  
+![Showing records thro api](https://raw.githubusercontent.com/Thirunavukkarasu/spring-development-series/master/spring-boot-jpa-webapp/screenshots/3_Records_Through_Api.PNG)
 # application.properties
 ```
 spring.datasource.url=jdbc:sqlserver://localhost:1433;databaseName=default
