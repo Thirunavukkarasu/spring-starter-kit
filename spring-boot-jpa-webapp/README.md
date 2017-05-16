@@ -1,7 +1,7 @@
 
 # spring-boot-jpa-webapp
 
-This application is built using Spring Boot, Spring Data JPA, Spring MVC REST and Hibernate ORM  framework we use for communicating to Microsoft SQL Server.
+This application is built using Spring Boot, Spring Data JPA, Spring MVC REST and finally we use Hibernate ORM  framework for communicating to Microsoft SQL Server 2008/2012/2014.
 
 # Creating Table
 ![Creating table](https://raw.githubusercontent.com/Thirunavukkarasu/spring-development-series/master/spring-boot-jpa-webapp/screenshots/1_Create_Table.PNG)
