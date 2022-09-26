@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  mongodb:
+    image: mongo:4.2
+    ports:
+        - 27017:27017    
+    restart: unless-stopped
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=mongodb
+      - MONGO_INITDB_DATABASE=nucleus
+    networks:
+      - stack
+
+volumes:
+  mongo_data:
+    driver: local
+
+networks:
+  stack:
+    driver: "bridge"
